@@ -39,6 +39,16 @@ The folder is still an empty skeleton (`src/`, `tests/`, `docs/`, `assets/`, `co
 - Segredos (DB, API keys) apenas em Server Actions ou Route Handlers
 - Copiar `.env.example` para `.env.local` ao clonar
 
+## Segredos e Segurança (tokens, chaves, senhas)
+- NUNCA imprimir, repetir, resumir ou registrar o valor de um token, chave de API ou senha: nem nas respostas, nem em comandos, commits, diffs, logs ou mensagens de erro. Referir-se a eles pelo nome ("token do GitHub") ou mascarados (`ghp_****`)
+- NUNCA ler por completo `.env*`, `.mcp.json` ou `~/.claude.json`. Para conferir se um segredo existe, usar `grep -c` ou `grep -q`, sem exibir o valor
+- Segredo colado na conversa: não repetir o valor, usá-lo só se o usuário autorizar a ação específica, e avisar que ele deve ser revogado e trocado
+- Onde guardar: segredos só em `.env.local` ou variáveis de ambiente (ignorados pelo git). Em `.mcp.json`, referenciar variáveis (`${NOME_DA_VARIAVEL}`) em vez de gravar o valor. `.mcp.json` já está no `.gitignore`
+- Nunca colocar token em URL, argumento de comando ou `.git/config`. Para o `git push`, usar o Git Credential Manager (login pelo navegador)
+- Antes de todo commit/push: `git grep --cached -n -I -E "github_pat_|ghp_|ctx7sk-|sk-ant-|Bearer [A-Za-z0-9_-]{20,}"`. Se algo aparecer, parar e avisar o usuário
+- Tokens com o mínimo de permissão, restritos a este repositório e com validade curta. Se um token vazar, revogar na hora
+- `NEXT_PUBLIC_*` nunca pode conter segredo. Segredos só em Server Actions ou Route Handlers
+
 ## Workflow
 - ALWAYS run `npm run type-check && npm run lint` após uma série de mudanças
 - Rodar um teste por vez, não o suite completo: `npm run test -- NomeDoArquivo`

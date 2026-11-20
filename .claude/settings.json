@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.local)",
+      "Read(./.env.*.local)",
+      "Read(./.env.development)",
+      "Read(./.env.production)",
+      "Read(./.mcp.json)",
+      "Read(~/.claude.json)",
+      "Bash(cat .env)",
+      "Bash(cat .env.*)",
+      "Bash(cat .mcp.json)",
+      "Bash(cat ~/.claude.json)",
+      "Bash(type .env)",
+      "Bash(type .mcp.json)",
+      "Bash(printenv:*)",
+      "Bash(env)"
+    ]
+  }
+}
