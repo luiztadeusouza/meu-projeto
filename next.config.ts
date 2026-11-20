@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   // Permite abrir o servidor de desenvolvimento pelo celular, na mesma rede Wi-Fi.
-  allowedDevOrigins: ["192.168.12.163", "10.81.234.83"],
+  allowedDevOrigins: process.env.ALLOWED_DEV_ORIGINS?.split(",") ?? [],
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   description: "Brinquedos antigos e colecionáveis selecionados com cuidado, com descrição honesta do estado de conservação.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="pt-BR"

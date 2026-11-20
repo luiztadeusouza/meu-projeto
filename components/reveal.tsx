@@ -47,6 +47,7 @@ export function Reveal({ children, className, de = "centro", atraso = 0 }: Revea
   }, []);
 
   return (
+    // Tailwind não suporta delay dinâmico via classe em runtime; inline style necessário.
     <div
       ref={ref}
       style={atraso ? { transitionDelay: `${atraso}ms` } : undefined}

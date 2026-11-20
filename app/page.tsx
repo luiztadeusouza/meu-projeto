@@ -4,11 +4,13 @@ import { ChevronDown } from "lucide-react";
 import { InstagramIcon } from "@/components/instagram-icon";
 import { MenuOculto } from "@/components/menu-oculto";
 import { Reveal } from "@/components/reveal";
+import { TituloSecao } from "@/components/titulo-secao";
 import { buttonVariants } from "@/components/ui/button";
 import { WhatsAppIcon } from "@/components/whatsapp-icon";
 import { cn } from "@/lib/utils";
+import { diferenciais, etapas } from "@/config/landing-page-data";
 
-const WHATSAPP_URL = "https://wa.me/5534998705113";
+const WHATSAPP_URL = `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}`;
 const INSTAGRAM_URL = "https://www.instagram.com/ltasbrinquedos/";
 
 const links = [
@@ -17,87 +19,6 @@ const links = [
   { href: "#como-funciona", rotulo: "Como funciona" },
   { href: "#contato", rotulo: "Contato" },
 ];
-
-const diferenciais: {
-  numero: string;
-  de: "direita" | "esquerda" | "centro";
-  titulo: string;
-  texto: string;
-}[] = [
-  {
-    numero: "01",
-    de: "direita",
-    titulo: "Peças selecionadas",
-    texto: "Cada brinquedo é escolhido pelo valor de coleção e pelo estado em que se encontra.",
-  },
-  {
-    numero: "02",
-    de: "esquerda",
-    titulo: "Descrição honesta",
-    texto: "Desgaste de pintura, peças faltando e embalagem aparecem na descrição, sem surpresas.",
-  },
-  {
-    numero: "03",
-    de: "centro",
-    titulo: "Marca e escala identificadas",
-    texto: "Fabricante, modelo e escala informados sempre que for possível identificar.",
-  },
-  {
-    numero: "04",
-    de: "direita",
-    titulo: "Envio cuidadoso",
-    texto: "Embalagem reforçada para a peça chegar como foi fotografada.",
-  },
-];
-
-const etapas = [
-  {
-    numero: "01",
-    titulo: "Escolha a peça",
-    texto: "Veja os brinquedos disponíveis no nosso Instagram.",
-  },
-  {
-    numero: "02",
-    titulo: "Fale com a gente",
-    texto: "Chame pelo WhatsApp para tirar dúvidas e reservar a peça.",
-  },
-  {
-    numero: "03",
-    titulo: "Combine os detalhes",
-    texto: "Definimos juntos a forma de pagamento e de envio.",
-  },
-  {
-    numero: "04",
-    titulo: "Receba em casa",
-    texto: "A peça segue embalada com cuidado até você.",
-  },
-];
-
-function TituloSecao({
-  eyebrow,
-  inicio,
-  destaque,
-  texto,
-}: {
-  eyebrow: string;
-  inicio: string;
-  destaque: string;
-  texto?: string;
-}) {
-  return (
-    <div className="max-w-2xl">
-      <p className="text-xs font-semibold uppercase tracking-widest text-primary">
-        {eyebrow}
-      </p>
-      <h2 className="font-heading mt-3 text-3xl font-bold leading-tight sm:text-4xl">
-        {inicio} <em className="text-primary">{destaque}</em>
-      </h2>
-      {texto ? (
-        <p className="mt-4 text-lg leading-8 text-muted-foreground">{texto}</p>
-      ) : null}
-    </div>
-  );
-}
 
 export default function Home() {
   return (

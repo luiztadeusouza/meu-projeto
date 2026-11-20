@@ -25,11 +25,19 @@ export function MenuOculto({ links }: MenuOcultoProps) {
       if (evento.key === "Escape") setAberto(false);
     }
 
+    function aoFocarFora(evento: FocusEvent) {
+      if (raiz.current && !raiz.current.contains(evento.target as Node)) {
+        setAberto(false);
+      }
+    }
+
     document.addEventListener("mousedown", aoClicarFora);
     document.addEventListener("keydown", aoTeclar);
+    document.addEventListener("focusin", aoFocarFora);
     return () => {
       document.removeEventListener("mousedown", aoClicarFora);
       document.removeEventListener("keydown", aoTeclar);
+      document.removeEventListener("focusin", aoFocarFora);
     };
   }, [aberto]);
 
