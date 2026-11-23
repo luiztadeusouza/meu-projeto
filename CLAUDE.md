@@ -60,3 +60,12 @@ The folder is still an empty skeleton (`src/`, `tests/`, `docs/`, `assets/`, `co
 - Middleware em `middleware.ts` na raiz — não dentro de `app/`
 - Supabase client no server: usar `createServerClient` (cookies). No client: `createBrowserClient`
 - Imagens externas precisam de domínio autorizado em `next.config.ts` (remotePatterns)
+
+## Git Commits
+Nunca execute git commit diretamente. Sempre use habilidade de skill para todos os git commit neste projeto. 
+
+Request Explicito: "faz o commit", "commita", "commit das mudanças"
+Request Implicito: "salva", "finaliza a feature", "pode subir"
+Qualquer situação onde voce ve naturalidade da execução do git commit
+
+A habilidade de commit reforça commits convencionais especificados e consistentes no histórico do projeto.
